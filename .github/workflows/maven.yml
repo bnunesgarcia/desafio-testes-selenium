@@ -1,4 +1,4 @@
-trname: Java CI with Maven
+trname: Java CI com Maven
 
 on:
   push:
