@@ -17,13 +17,13 @@ jobs:
         uses: actions/setup-java@v2
         with:
           distribution: 'zulu'
-          java-version: '21.0.2'
+          java-version: '11.0.18'
 
       - name: Set up Maven
         uses: actions/setup-java@v2
         with:
           distribution: 'zulu'
-          java-version: '11.0.18'
+          java-version: '21.0.2'
           cache: 'maven'
 
       - name: Build with Maven
