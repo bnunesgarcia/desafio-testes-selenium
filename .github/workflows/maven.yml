@@ -17,7 +17,7 @@ jobs:
         uses: actions/setup-java@v2
         with:
           distribution: 'zulu'
-          java-version: '11.0.18'
+          java-version: '21.0.2'
 
       - name: Set up Maven
         uses: actions/setup-java@v2
@@ -30,7 +30,7 @@ jobs:
         run: mvn -B clean install -DskipTests=true -e -X
 
       - name: Run tests with Maven
-        run: mvn -B test -Dtest=RunCucumberTest test
+        run: mvn -B test -Dtest=RunCucumberTest -Dargs="--headless"
 
       # - name: Publish test result
       #   if: always()
