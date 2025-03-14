@@ -14,13 +14,13 @@ jobs:
     - name: Set up Java
       uses: actions/setup-java@v2
       with:
-        java-version: '11' # Substitua por sua versão de Java
+        java-version: '11'
 
     - name: Set up Maven
       uses: actions/setup-maven@v2
       with:
-        java-version: '11' # Substitua por sua versão de Java
-        maven-version: '3.8.1' # Substitua pela versão do Maven que você está usando
+        java-version: '21.0.2'
+        maven-version: '3.8.1'
 
     - name: Cache Maven
       uses: actions/cache@v2
