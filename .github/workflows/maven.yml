@@ -38,7 +38,7 @@ jobs:
     - name: List test files
       run: |
         echo "Listing test files in src/test"
-        dir src\test /s /b *.java
+        Get-ChildItem -Path src/test -Recurse -Filter *.java
 
     - name: Run Cucumber tests
       run: mvn -B test -Dtest=RunCucumberTest -Dargs="--headless"
