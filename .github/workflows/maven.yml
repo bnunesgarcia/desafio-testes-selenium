@@ -37,4 +37,4 @@ jobs:
         find src/test -name "*.java"
 
     - name: Run Cucumber tests
-      run: mvn -B test -Dtest=br.com.desafiofrontend.runner.RunCucumberTest -Dargs="--headless"
+      run: mvn -B test -Dtest=RunCucumberTest -Dargs="--headless"
