@@ -30,7 +30,7 @@ jobs:
         mvn -version
         
     - name: Install dependencies
-      run: mvn -B dependency:go-offline -Dmaven.repo.local=.m2
+      run: mvn -B dependency:go-offline
 
     - name: Build with Maven
       run: mvn -B clean install -DskipTests=true -e -X
