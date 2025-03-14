@@ -1,4 +1,4 @@
-# deafio-automacao
+# desafio-automacao
 Desafio de testes automatizados frontend
 
 Aqui está um exemplo de README que você pode usar como base para o seu projeto de testes automatizados:
