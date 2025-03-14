@@ -26,7 +26,7 @@ Funcionalidade: Acessar a aplicação demoqa para manipular registros
             | elements | web tables | add   | Bruno   | Garcia    | brunoteste@teste.com | 36    | 10000   | Insurance    |
             | elements | web tables | add   | Gael    | Garcia    | gaelteste@teste.com  | 20    | 8000    | Insurance    |
             | elements | web tables | add   | Benicio | Garcia    | beniteste@teste.com  | 25    | 4000    | Insurance    |
-#            | elements | web tables | add   | Monica  | Garcia    | moniteste@teste.com  | 36    | 6000    | Insurance    |
+            | elements | web tables | add   | Monica  | Garcia    | moniteste@teste.com  | 36    | 6000    | Insurance    |
 
     Esquema do Cenário: Alterar registro criado
         Dado que eu acesse a aplicacao demoqa
