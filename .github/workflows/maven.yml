@@ -1,7 +1,7 @@
 name: Build and Test
 on:
   push:
-    branches: [ main ]
+    branches: [ main, feature-automacao ]
 
 jobs:
   build:
@@ -23,6 +23,7 @@ jobs:
         distribution: 'zulu'
         java-version: '21.0.2'
         maven-version: '3.9.1'
+        cache: 'maven'
         
     - name: Install dependencies
       run: mvn -B dependency:go-offline -Dmaven.repo.local=.m2
