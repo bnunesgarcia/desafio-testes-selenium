@@ -21,14 +21,7 @@ jobs:
       with:
         java-version: '21.0.2'
         maven-version: '3.9.1'
-
-    - name: Cache Maven
-      uses: actions/cache@v2
-      with:
-        path: ~/.m2/repository
-        key: ${{ runner.os }}-maven-cache
-        restore-keys: ${{ runner.os }}-maven-cache
-
+        
     - name: Install dependencies
       run: mvn -B dependency:go-offline -Dmaven.repo.local=.m2
 
