@@ -7,7 +7,7 @@ on:
 
 jobs:
   build:
-    runs-on: Agent-Windows
+    runs-on: ubuntu-latest
 
     steps:
       - name: Check out repository code
