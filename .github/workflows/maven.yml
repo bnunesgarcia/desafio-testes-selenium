@@ -1,13 +1,13 @@
-trname: Java CI com Maven
+name: Java CI com Maven
 
 on:
   push:
     branches:
-      - master
+      - main
 
 jobs:
   build:
-    runs-on: windows-latest
+    runs-on: ubuntu-latest
 
     steps:
       - name: Check out repository code
@@ -23,18 +23,18 @@ jobs:
         uses: actions/setup-java@v2
         with:
           distribution: 'zulu'
-          java-version: '11.0.18'
+          java-version: '21.0.2'
           cache: 'maven'
 
       - name: Build with Maven
         run: mvn -B clean install -DskipTests=true -e -X
 
       - name: Run tests with Maven
-        run: mvn -B test -Dtest=RunCucumberTest test
+        run: mvn -B test -Dtest=RunCucumberTest -Dargs="--headless"
 
-      - name: Publish test result
-        if: always()
-        uses: actions/upload-artifact@v2
-        with:
-          name: surefire-reports
-          path: '**/target/surefire-reports/*.xml'
+      # - name: Publish test result
+      #   if: always()
+      #   uses: actions/upload-artifact@v2
+      #   with:
+      #     name: surefire-reports
+      #     path: '**/target/surefire-reports/*.xml'
