@@ -31,5 +31,10 @@ jobs:
     - name: Build with Maven
       run: mvn -B clean install -DskipTests=true -e -X
 
+      name: List test files
+      run: |
+        echo "Listing test files in src/test"
+        find src/test -name "*.java"
+
     - name: Run Cucumber tests
       run: mvn -B test -Dtest=RunCucumberTest -Dargs="--headless"
