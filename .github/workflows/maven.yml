@@ -43,8 +43,9 @@ jobs:
     - name: Run Cucumber tests
       run: mvn -B test -Dtest=RunCucumberTest -Dargs="--headless"
 
-    - name: Print Surefire reports
-      if: failure()
-      run: |
-        echo "Printing Surefire reports"
-        Get-ChildItem -Path target/surefire-reports -Recurse -Filter *.txt | ForEach-Object { Get-Content $_.FullName }
+    - name: Upload Surefire reports
+      if: always()
+      uses: actions/upload-artifact@v2
+      with:
+        name: surefire-reports
+        path: target/surefire-reports/
