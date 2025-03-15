@@ -42,10 +42,3 @@ jobs:
 
     - name: Run Cucumber tests
       run: mvn -B test -Dtest=RunCucumberTest -Dargs="--headless"
-
-    - name: Upload Surefire reports
-      if: always()
-      uses: actions/upload-artifact@v2
-      with:
-        name: surefire-reports
-        path: target/surefire-reports/
