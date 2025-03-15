@@ -39,10 +39,6 @@ jobs:
         sudo mv geckodriver /usr/local/bin/
         sudo chmod +x /usr/local/bin/geckodriver
 
-    - name: Install Firefox
-      run: |
-        sudo apt-get install -y firefox
-
     - name: Install dependencies
       run: mvn install -DskipTests
 
