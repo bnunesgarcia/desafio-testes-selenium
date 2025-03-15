@@ -4,8 +4,6 @@ import br.com.desafiofrontend.support.Utils;
 import org.junit.Assert;
 import org.openqa.selenium.By;
 
-import java.util.Random;
-
 public class CriarRegistroPages extends Utils {
     private String nome;
     private String sobrenome;

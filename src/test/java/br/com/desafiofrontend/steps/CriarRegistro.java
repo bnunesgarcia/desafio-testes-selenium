@@ -4,10 +4,7 @@ import br.com.desafiofrontend.pages.CriarMultiplosRegistrosPages;
 import br.com.desafiofrontend.pages.CriarRegistroPages;
 import br.com.desafiofrontend.support.Utils;
 import io.cucumber.java.pt.E;
-import org.junit.Assert;
 import org.openqa.selenium.By;
-
-import java.util.Random;
 
 public class CriarRegistro extends Utils {
 

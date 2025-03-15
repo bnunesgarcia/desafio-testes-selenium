@@ -6,12 +6,10 @@ import constants.Variaveis;
 import org.openqa.selenium.By;
 import io.cucumber.java.pt.E;
 import org.openqa.selenium.JavascriptExecutor;
-import org.openqa.selenium.Keys;
 import org.openqa.selenium.WebElement;
-import org.openqa.selenium.interactions.Actions;
 
 
-    public class PreencherFormulario extends Utils {
+public class PreencherFormulario extends Utils {
 
         PreencheFormularioPages preencheFormulario = new PreencheFormularioPages();
 

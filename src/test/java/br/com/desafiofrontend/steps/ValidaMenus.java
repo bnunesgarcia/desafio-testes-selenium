@@ -3,15 +3,7 @@ package br.com.desafiofrontend.steps;
 import br.com.desafiofrontend.pages.AcessaFuncionalidadesPages;
 import io.cucumber.java.pt.E;
 import io.cucumber.java.pt.Entao;
-import io.cucumber.java.pt.Então;
 import io.cucumber.java.pt.Quando;
-import io.opentelemetry.exporter.logging.SystemOutLogRecordExporter;
-import org.openqa.selenium.By;
-
-import java.util.Arrays;
-import java.util.List;
-
-import static br.com.desafiofrontend.runner.RunCucumberTest.driver;
 
 public class ValidaMenus {
 
