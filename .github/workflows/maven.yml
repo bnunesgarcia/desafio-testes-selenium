@@ -30,7 +30,6 @@ jobs:
           restore-keys: |
             ${{ runner.os }}-maven-
 
-<<<<<<< HEAD
       - name: Install GeckoDriver
         run: |
           curl -L -o geckodriver.zip https://github.com/mozilla/geckodriver/releases/download/v0.30.0/geckodriver-v0.30.0-win64.zip
@@ -46,20 +45,3 @@ jobs:
 
       - name: Run tests
         run: mvn test
-=======
-    - name: Install GeckoDriver
-      run: |
-        curl -L -o geckodriver.zip https://github.com/mozilla/geckodriver/releases/download/v0.30.0/geckodriver-v0.30.0-win64.zip
-        tar -xf geckodriver.zip
-        move geckodriver.exe C:\Windows\System32
-
-    - name: Install Firefox
-      run: |
-        choco install firefox --version=94.0.2
-
-    - name: Install dependencies
-      run: mvn install -DskipTests
-
-    - name: Run tests
-      run: mvn test
->>>>>>> 1e809ef41740910e367bd7bcc7f50ce3625d5b13
