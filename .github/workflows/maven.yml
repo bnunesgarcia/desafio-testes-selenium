@@ -33,8 +33,8 @@ jobs:
     - name: Install GeckoDriver
       run: |
         curl -L -o geckodriver.zip https://github.com/mozilla/geckodriver/releases/download/v0.30.0/geckodriver-v0.30.0-win64.zip
-        tar -xf geckodriver.zip -C /usr/local/bin/
-        move /usr/local/bin/geckodriver.exe C:\Windows\System32
+        tar -xf geckodriver.zip
+        move geckodriver.exe C:\Windows\System32
 
     - name: Install Firefox
       run: |
