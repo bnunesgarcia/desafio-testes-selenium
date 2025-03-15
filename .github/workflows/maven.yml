@@ -10,35 +10,27 @@ jobs:
     steps:
     - name: Checkout repository
       uses: actions/checkout@v2
+    - task: Maven@3
+      inputs: 
+        mavenPomFile: 'pom.xml'
+        mavenOptions: '-Xmx3072m'
+        javaHomeOption: 'JDKVersion'
+        jdkVersionOption: '11.0.18'
+        jdkArchitectureOption: 'x64'
+        options: '-DskipTests=true -e -X'
+        goals: 'clean install'
 
-    - name: Set up Java
-      uses: actions/setup-java@v2
-      with:
-        distribution: 'zulu'
-        java-version: '21.0.2'
-
-    - name: Install Chocolatey
-      run: |
-        Set-ExecutionPolicy Bypass -Scope Process -Force; [System.Net.ServicePointManager]::SecurityProtocol = [System.Net.ServicePointManager]::SecurityProtocol -bor 3072; iex ((New-Object System.Net.WebClient).DownloadString('https://community.chocolatey.org/install.ps1'))
-
-    - name: Install Maven
-      run: choco install maven -y
-
-    - name: Check Java and Maven version
-      run: |
-        java -version
-        mvn -version
-        
-    - name: Install dependencies
-      run: mvn -B dependency:go-offline
-
-    - name: Build with Maven
-      run: mvn -B clean install -DskipTests=true -e -X
-
-    - name: List test files
-      run: |
-        echo "Listing test files in src/test"
-        Get-ChildItem -Path src/test -Recurse -Filter *.java
-
-    - name: Run Cucumber tests
-      run: mvn -B test -Dtest=RunCucumberTest -Dargs="--headless"
+    - task: Maven@3
+      inputs:
+        mavenPomFile: 'pom.xml'
+        mavenOptions: '-Xmx3072m'
+        javaHomeOption: 'JDKVersion'
+        jdkVersionOption: '11.0.18'
+        jdkArchitectureOption: 'x64'
+        goals: 'test'
+        options: '-Dtest=RunCucumberTest test'
+  
+    - task: PublishTestResults@2
+      inputs:
+        testResultsFiles: '**target/surefire-reports/*.xml'
+        testRunTitle: 'Surefire Test Results'
