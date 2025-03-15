@@ -26,4 +26,4 @@ jobs:
       run: mvn install -DskipTests
 
     - name: Run tests
-      run: mvn test
+      run: mvn test -Dtest=src.test.br.com.desafiofrontend.runner.RunCucumberTest
