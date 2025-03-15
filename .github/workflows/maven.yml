@@ -10,8 +10,8 @@ on:
 
 jobs:
   build:
-    runs-on: ubuntu-latest
-    
+    runs-on: windows-latest
+
     steps:
     - name: Checkout repository
       uses: actions/checkout@v2
@@ -32,12 +32,13 @@ jobs:
 
     - name: Install GeckoDriver
       run: |
-        sudo apt-get update
-        sudo apt-get install -y wget
-        sudo wget https://github.com/mozilla/geckodriver/releases/download/v0.30.0/geckodriver-v0.30.0-linux64.tar.gz
-        sudo tar -xvf geckodriver-v0.30.0-linux64.tar.gz
-        sudo mv geckodriver /usr/local/bin/
-        sudo chmod +x /usr/local/bin/geckodriver
+        curl -L -o geckodriver.zip https://github.com/mozilla/geckodriver/releases/download/v0.30.0/geckodriver-v0.30.0-win64.zip
+        tar -xf geckodriver.zip -C /usr/local/bin/
+        move /usr/local/bin/geckodriver.exe C:\Windows\System32
+
+    - name: Install Firefox
+      run: |
+        choco install firefox --version=94.0.2
 
     - name: Install dependencies
       run: mvn install -DskipTests
