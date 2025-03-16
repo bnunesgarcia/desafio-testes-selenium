@@ -48,3 +48,9 @@ jobs:
 
       - name: Generate Test Report
         run: mvn surefire-report:report-only
+
+      - name: Upload Test Report
+        uses: actions/upload-artifact@v2
+        with:
+          name: surefire-report
+          path: target/site/surefire-report.html
