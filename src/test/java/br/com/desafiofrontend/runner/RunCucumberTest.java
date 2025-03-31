@@ -7,7 +7,6 @@ import org.junit.BeforeClass;
 import org.junit.runner.RunWith;
 import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.firefox.FirefoxDriver;
-
 import java.io.FileInputStream;
 import java.io.IOException;
 import java.io.InputStream;
@@ -18,7 +17,7 @@ import java.util.Properties;
 @CucumberOptions(
         features = {"src/test/resources/features"},
         plugin = {"pretty", "html:report/test-report.html", "json:report/test-report.json"},
-//        tags = "@test",
+        // tags = "@test",
         glue = {"br.com.desafiofrontend.steps"}
 )
 public class RunCucumberTest {
