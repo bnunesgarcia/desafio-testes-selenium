@@ -3,6 +3,8 @@ package br.com.desafiofrontend.pages;
 import org.openqa.selenium.By;
 import org.openqa.selenium.JavascriptExecutor;
 import org.openqa.selenium.WebElement;
+import org.openqa.selenium.support.FindBy;
+import org.openqa.selenium.support.PageFactory;
 import org.openqa.selenium.support.ui.ExpectedConditions;
 import org.openqa.selenium.support.ui.WebDriverWait;
 import br.com.desafiofrontend.support.Utils;
@@ -12,6 +14,10 @@ import java.util.List;
 import org.junit.Assert;
 
 public class NavegacaoPages extends Utils {
+
+    public NavegacaoPages() {
+    PageFactory.initElements(driver, this);
+    }
 
     List<String> getSubmenus(String menu) {
         switch (menu.toLowerCase()) {
@@ -38,58 +44,80 @@ public class NavegacaoPages extends Utils {
         {"Gentry", "Kierra", "Gentry", "29", "kierra@example.com", "2000", "Legal"}
     };
 
-    String menuForms = "//div[2]/div/div/div[2]/div/div[2]";
-    String menuAlerts = "//div[2]/div/div/div[2]/div/div[3]";
-    String menuElements = "//div[2]/div/div/div[2]/div/div[1]";
-    String widgets = "//div[2]/div/div/div[2]/div/div[4]";
-    String menuInteractions = "//div[2]/div/div/div[2]/div/div[5]";
-    String menuBookStoreApplication = "//div[2]/div/div/div[2]/div/div[6]";
-    String subMenuPracticeForms = "//div[2]/div/div/div/div[1]/div/div/div[2]/div/ul";
-    String subMenuBrowserWindows = ".show > ul:nth-child(1) > li:nth-child(1) > span:nth-child(2)";
-    String subMenuWebElements = ".show > ul:nth-child(1) > li:nth-child(4) > span:nth-child(2)";
-    String subMenuSortable = ".show > ul:nth-child(1) > li:nth-child(1)";
-    String subMenuLogin = ".show > ul:nth-child(1) > li:nth-child(1)";
-    String campoPesquisa = "//*[@id=\"searchBox\"]";
-    String botaoAddNovoRegistro = "//*[@id=\"addNewRecordButton\"]";
-    String botaoEditaRegistro = "//*[@id=\"edit-record-1\"]";
-    String botaoDeletaRegistro = "//*[@id=\"delete-record-1\"]";
-    String campoNome = "firstName";
-    String campoSobrenome = "lastName";
-    String campoEmail = "userEmail";
-    String campoIdade = "age";
-    String campoSalario = "salary";
-    String campoDepto = "department";
-    String botaoSubmitFormulario = "//*[@id=\"submit\"]";
+    @FindBy(css = "a[href='/forms']")
+    private WebElement menuForms;
+    @FindBy(css = "a[href='/alertsWindows']")
+    private WebElement menuAlerts;
+    @FindBy(css = "a[href='/elements']")
+    private WebElement menuElements;
+    @FindBy(css = "a[href='/interaction']")
+    private WebElement menuInteractions;
+    @FindBy(xpath = "//*[@id=\"root\"]/div/div/div[2]/div/a[6]")    
+    private WebElement menuBookStoreApplication;
+    @FindBy(css = "a[href='/widgets']")
+    private WebElement menuWidgets;
+    @FindBy(xpath = "//span[text()='Web Tables']")
+    private WebElement subMenuWebElements;
+    @FindBy(xpath = "//span[text()='Sortable']")
+    private WebElement subMenuSortable;
+    @FindBy(xpath = "//div[2]/div/div/div/div[1]/div/div/div[2]/div/ul")
+    private WebElement subMenuPracticeFroms;
+    @FindBy(css = ".show > ul:nth-child(1) > li:nth-child(1) > span:nth-child(2)")
+    private WebElement subMenuBrowserWindows;
+    @FindBy(css = ".show > ul:nth-child(1) > li:nth-child(1)")
+    private WebElement subMenuLogin;
+    @FindBy(id = "searchBox")
+    private WebElement campoPesquisa;
+    @FindBy(id = "addNewRecordButton")
+    private WebElement botaoAddNovoRegistro;
+    @FindBy(id = "edit-record-1")
+    private WebElement botaoEditaRegistro;
+    @FindBy(id = "delete-record-1")
+    private WebElement botaoDeletaRegistro;
+    @FindBy(id = "firstName")
+    private WebElement campoNome;
+    @FindBy(id = "lastName")
+    private WebElement campoSobrenome;
+    @FindBy(id = "userEmail")
+    private WebElement campoEmail;
+    @FindBy(id = "age")
+    private WebElement campoIdade;
+    @FindBy(id = "salary")
+    private WebElement campoSalario;
+    @FindBy(id = "department")
+    private WebElement campoDepto;
+    @FindBy(id = "submit")
+    private WebElement botaoSubmitFormulario;
 
     public void validaExibicaoMenu(String menu) {
         if (menu.equals("forms")) {
-            driver.findElement(By.xpath(menuForms)).isDisplayed();
+            menuForms.isDisplayed();
         } else if (menu.equals("alerts, frame & windows")) {
-            driver.findElement(By.xpath(menuAlerts)).isDisplayed();
+            menuAlerts.isDisplayed();
         } else if (menu.equals("elements")) {
-            driver.findElement(By.xpath(menuElements)).isDisplayed();
+            menuElements.isDisplayed();
         } else if (menu.equals("interactions")) {
-            driver.findElement(By.xpath(menuInteractions)).isDisplayed();
+            menuInteractions.isDisplayed();
         } else if (menu.equals("widgets")) {
-            driver.findElement(By.xpath(widgets)).isDisplayed();
+            menuWidgets.isDisplayed();
         } else if (menu.equals("book store application")) {
-            driver.findElement(By.xpath(menuBookStoreApplication)).isDisplayed();
+            menuBookStoreApplication.isDisplayed();
         }
     }
 
     public void acessaMenu(String menu) {
         if (menu.equals("forms")) {
-            driver.findElement(By.xpath(menuForms)).click();
+            menuForms.click();
         } else if (menu.equals("alerts, frame & windows")) {
-            driver.findElement(By.xpath(menuAlerts)).click();
+            menuAlerts.click();
         } else if (menu.equals("elements")) {
-            driver.findElement(By.xpath(menuElements)).click();
+            menuElements.click();
         } else if (menu.equals("interactions")) {
-            driver.findElement(By.xpath(menuInteractions)).click();
+            menuInteractions.click();
         } else if (menu.equals("widgets")) {
-            driver.findElement(By.xpath(widgets)).click();
+            menuWidgets.click();
         } else if (menu.equals("book store application")) {
-            driver.findElement(By.xpath(menuBookStoreApplication)).click();
+            menuBookStoreApplication.click();
         }
     }
 
@@ -104,42 +132,40 @@ public class NavegacaoPages extends Utils {
     }
 
     public void acessaSubMenu(String submenu) {
-        if (submenu.equals("web tables")) {
-            WebDriverWait wait = new WebDriverWait(driver, Duration.ofSeconds(2));
-            WebElement webTablesElement = wait.until(ExpectedConditions.elementToBeClickable(By.cssSelector(subMenuWebElements)));
-            webTablesElement.click();
-        } else if(submenu.equals("login")){
-            WebElement element = driver.findElement(By.cssSelector(subMenuLogin));
-            ((JavascriptExecutor) driver).executeScript("arguments[0].click();", element);
-        }
+        // Para submenus específicos que exigem tratativa especial
+        String xpathDinamico = "//span[@class='text' and text()='" + submenu + "']";
+        WebDriverWait wait = new WebDriverWait(driver, Duration.ofSeconds(10));
+        WebElement element = wait.until(ExpectedConditions.elementToBeClickable(By.xpath(xpathDinamico)));
+        
+        ((JavascriptExecutor) driver).executeScript("arguments[0].scrollIntoView(true);", element);
+        element.click();
     }
 
     public void acessarOperacao(String operacao) {
         if(operacao.equals("adicionar")){
-            driver.findElement(By.xpath(botaoAddNovoRegistro)).click();
+            botaoAddNovoRegistro.click();
         } else if(operacao.equals("editar")){
-            driver.findElement(By.xpath(botaoEditaRegistro)).click();
+            botaoEditaRegistro.click();
         } else if(operacao.equals("deletar")){
-            driver.findElement(By.xpath(botaoDeletaRegistro)).click();
+            botaoDeletaRegistro.click();
         }
     }
 
     public void realizarOperacao(String acao) throws InterruptedException{
         if(acao.equals("preencho")){
             driver.findElement(By.xpath("//div[4]/div/div")).isDisplayed();
-            driver.findElement(By.id(campoNome)).sendKeys("Bruno");
-            driver.findElement(By.id(campoSobrenome)).sendKeys("Teste");
-            driver.findElement(By.id(campoEmail)).sendKeys("teste@teste.com.br");
-            driver.findElement(By.id(campoIdade)).sendKeys("36");
-            driver.findElement(By.id(campoSalario)).sendKeys("5000");
-            driver.findElement(By.id(campoDepto)).sendKeys("TI");
-            driver.findElement(By.xpath(botaoSubmitFormulario)).click();
+            campoNome.sendKeys("Bruno");
+            campoSobrenome.sendKeys("Teste");
+            campoEmail.sendKeys("teste@teste.com.br");
+            campoIdade.sendKeys("36");
+            campoSalario.sendKeys("5000");
+            campoDepto.sendKeys("TI");
+            botaoSubmitFormulario.click();
         } else if(acao.equals("altero")){
             driver.findElement(By.xpath("//div[4]/div/div")).isDisplayed();
-            WebElement campoNomeAlteracao = driver.findElement(By.id(campoNome));
-            campoNomeAlteracao.clear();
-            campoNomeAlteracao.sendKeys("Alteracao");
-            driver.findElement(By.xpath(botaoSubmitFormulario)).click();
+            campoNome.clear();
+            campoNome.sendKeys("Alteracao");
+            botaoSubmitFormulario.click();
         } else if(acao.equals("excluo")){
             while (true) {
                 List<WebElement> deleteButtons = driver.findElements(By.xpath("//*[contains(@id, 'delete-record-')]"));
@@ -169,7 +195,7 @@ public class NavegacaoPages extends Utils {
     }
 
     public void pesquisaRegistro(String registro){
-        driver.findElement(By.xpath(campoPesquisa)).sendKeys(registro);
+        campoPesquisa.sendKeys(registro);
     }
 
     public void validaPesquisa(String registro){

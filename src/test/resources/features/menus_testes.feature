@@ -4,6 +4,7 @@ Funcionalidade: Validar menus na tela inicial do sistema
     Quero acessar a aplicação demoqa
     Para validar através dos menus as funcionalidades existentes no sistema
 
+    @teste_menus
     Esquema do Cenario: Validar menus e submenus da aplicacao demoqa
         Dado que eu acesse a aplicacao demoqa
         E o menu <menu> esta disponivel
