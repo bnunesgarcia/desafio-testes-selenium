@@ -4,13 +4,11 @@ on:
   push:
     branches:
       - main
-  pull_request:
-    branches:
-      - main
+      - feature-automacao
 
 jobs:
   build:
-    runs-on: windows-latest
+    runs-on: Agent-Windows
 
     steps:
       - name: Checkout repository
